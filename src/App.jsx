@@ -4,6 +4,7 @@ import 'antd/dist/reset.css'
 import Carousel from "./components/UI/carousel.jsx";
 import Card from "./components/UI/popover.jsx";
 import Popover from "./components/UI/popover.jsx";
+import Cardarray from "./components/UI/cardarray.jsx";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -13,19 +14,19 @@ const headerStyle=  {
     height: '64',
     paddingInline: '48',
     lineHeight : '64',
-    backgroundColor: '#4096ff'
+    backgroundColor: '#2F363A'
 }
 const contentStyle = {
     textAlign: 'center',
     minHeight: 120,
     lineHeight: '120px',
     color: '#fff',
-    backgroundColor: '#0958d9',
+    backgroundColor: '#2F363A',
 };
 const footerStyle = {
     textAlign: 'center',
     color: '#fff',
-    backgroundColor: '#4096ff',
+    backgroundColor: '#CDCCD4',
 };
 const layoutStyle = {
     borderRadius: 8,
@@ -39,7 +40,7 @@ const App = () => (
             <Header style={headerStyle}>Header</Header>
             <Content style={contentStyle}>
                <Carousel />
-                <Popover/>
+                <Cardarray/>
             </Content>
             <Footer style={footerStyle}>Footer</Footer>
         </Layout>

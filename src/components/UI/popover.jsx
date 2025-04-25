@@ -1,61 +1,48 @@
-﻿import React, { useMemo, useState } from 'react';
-import { Button, ConfigProvider, Flex, Popover, Segmented } from 'antd';
+﻿import React, { useState } from 'react';
+import Card from "./card.jsx";
+
+const { Meta } = Card;
 
 const App = () => {
-    const [arrow, setArrow] = useState('Show');
+    // Состояние для контроля видимости всплывающего окна
+    const [visible, setVisible] = useState(false);
 
-    const mergedArrow = useMemo(() => {
-        if (arrow === 'Hide') {
-            return false; // убираем стрелку
-        }
-        if (arrow === 'Show') {
-            return false; // обычная стрелка
-        }
-        return {
-            pointAtCenter: true, // по центру стрелка
-        };
-    }, [arrow]);
+    // Стили для плавного появления всплывающего окна
+    const popupStyle = {
+        width: 200,
+        height: 250,
+        backgroundColor: '#fff',
+        color: 'black',
+        borderRadius: 4,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        top: '50%',
+        left: '100%',
+        transform: 'translateY(-50px) translateX(-100px)',
+        opacity: visible ? 1 : 0,  // Плавное изменение видимости
+        pointerEvents: 'none',  // Чтобы не мешать наведению на основную карточку
+        transition: 'opacity 0.3s ease',  // Плавное изменение opacity
+        zIndex: 10
+    };
 
-    const content = (
-        <div style={{
-            width: 120,
-            height: 80,
-            backgroundColor: '#4096ff',
-            color: '#fff',
-            borderRadius: 4,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
-            Info Box
-        </div>
-    );
+    // Стили для основной карточки
 
     return (
-        <ConfigProvider>
-            <Flex
-                justify="center"
-                align="center"
-                style={{ height: '100vh', width: '100vw' }}
-            >
-                <Flex vertical align="center" gap={20}>
-                    <Segmented
-                        options={['Show', 'Hide', 'Center']}
-                        onChange={setArrow}
-                        style={{ marginBottom: 24 }}
-                    />
-                    <Popover
-                        content={content}
-                        placement="right"
-                        arrow={mergedArrow}
-                        trigger="hover"
-                        overlayInnerStyle={{ marginTop: '20px' }} // ← смещение вниз
-                    >
-                        <Button type="primary">Hover me</Button>
-                    </Popover>
-                </Flex>
-            </Flex>
-        </ConfigProvider>
+        <div
+            style={{ position: 'relative', display: 'inline-block' }}
+            onMouseEnter={() => setVisible(true)}  // Активируем появление при наведении
+            onMouseLeave={() => setVisible(false)} // Делаем всплывающее окно невидимым при убирании курсора
+        >
+            {/* Всплывающее окно */}
+            <div style={popupStyle}>
+                Info Box
+            </div>
+
+            {/* Основная карточка */}
+            <Card/>
+        </div>
     );
 };
 

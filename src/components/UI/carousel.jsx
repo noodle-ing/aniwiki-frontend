@@ -7,19 +7,29 @@ const contentStyle = {
     textAlign: 'center',
     background: '#364d79',
 };
+
+
+const backgroundImageStyle = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+};
+
 const App = () => (
+
+
     <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
         <div>
-            <h3 style={contentStyle}>1</h3>
+            <h3 style={contentStyle}><img style={backgroundImageStyle} src="https://img.freepik.com/free-photo/anime-eyes-illustration_23-2151660535.jpg" alt="#"/></h3>
         </div>
         <div>
-            <h3 style={contentStyle}>2</h3>
+            <h3 style={contentStyle}><img style={backgroundImageStyle} src="https://img.freepik.com/free-photo/anime-eyes-illustration_23-2151660492.jpg?semt=ais_hybrid&w=740" alt="#"/></h3>
         </div>
         <div>
-            <h3 style={contentStyle}>3</h3>
+            <h3 style={contentStyle}><img style={backgroundImageStyle} src="https://img.freepik.com/free-photo/anime-eyes-illustration_23-2151660532.jpg?semt=ais_hybrid&w=740" alt="#"/></h3>
         </div>
         <div>
-            <h3 style={contentStyle}>4</h3>
+            <h3 style={contentStyle}><img style={backgroundImageStyle} src="https://img.freepik.com/free-photo/anime-eyes-illustration_23-2151660476.jpg?semt=ais_hybrid&w=740" alt="#"/></h3>
         </div>
     </Carousel>
 );
