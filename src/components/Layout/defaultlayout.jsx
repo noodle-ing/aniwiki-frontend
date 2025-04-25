@@ -1,9 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { Flex, Layout } from 'antd';
 import 'antd/dist/reset.css'
-import Carousel from "./components/UI/carousel.jsx";
-import Card from "./components/UI/popover.jsx";
-import Popover from "./components/UI/popover.jsx";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -37,10 +34,7 @@ const App = () => (
     <Flex gap="middle" wrap>
         <Layout style={layoutStyle}>
             <Header style={headerStyle}>Header</Header>
-            <Content style={contentStyle}>
-               <Carousel />
-                <Popover/>
-            </Content>
+            <Content style={contentStyle}>Content</Content>
             <Footer style={footerStyle}>Footer</Footer>
         </Layout>
     </Flex>
