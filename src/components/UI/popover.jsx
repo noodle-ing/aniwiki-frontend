@@ -11,7 +11,8 @@ const App = () => {
     const popupStyle = {
         width: 200,
         height: 250,
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)', // светлая полупрозрачность
+        backdropFilter: 'blur(10px)',
         color: 'black',
         borderRadius: 4,
         display: 'flex',
