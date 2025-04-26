@@ -8,6 +8,7 @@ import Cardarray from "./components/UI/cardarray.jsx";
 import './App.css'
 import Search from "./components/UI/search.jsx";
 import Animepreviewline from "./components/UI/animepreviewline.jsx";
+import Animepreviewcolume from "./components/UI/animepreviewcolume.jsx";
 const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle=  {
@@ -91,7 +92,33 @@ const App = () => (
                 </div>
 
                 <Cardarray/>
-                <Animepreviewline></Animepreviewline>
+
+                <div className="animecolume">
+                    <div className="topAnime">
+                        <div className="topic">
+                            Top Anime
+                        </div>
+                        <div className="topic">
+                            <Animepreviewcolume/>
+                        </div>
+                    </div>
+                    <div className="topAnime">
+                        <div className="topic">
+                            Top Anime
+                        </div>
+                        <div className="topic">
+                            <Animepreviewcolume/>
+                        </div>
+                    </div>
+                    <div className="topAnime">
+                        <div className="topic">
+                            Top Anime
+                        </div>
+                        <div className="topic">
+                            <Animepreviewcolume/>
+                        </div>
+                    </div>
+                </div>
             </Content>
             <Footer style={footerStyle}>Footer</Footer>
         </Layout>

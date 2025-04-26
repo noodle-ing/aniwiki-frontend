@@ -1,15 +1,13 @@
 ﻿import Button from "./button.jsx";
 
-const App = () => (
+const Animepreviewline = () => (
     <div className="lineelement">
         <div className="lineImage">
             <img src="https://upload.wikimedia.org/wikipedia/en/6/69/Black_Clover%2C_volume_1.jpg" alt="#"/>
         </div>
         <div className="lineText">
             <div className="animeName">
-                <p>
-                    One pice
-                </p>
+                    black clover
             </div>
             <div className="buttons">
                 <Button></Button>
@@ -18,5 +16,5 @@ const App = () => (
         </div>
     </div>
 );
-export default App;
+export default Animepreviewline;
 

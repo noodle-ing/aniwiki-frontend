@@ -86,8 +86,10 @@
 .lineelement{
  display: flex;
  flex-direction:row;
- align-content:start;
+ justify-content:space-between;
  align-items: stretch;
+ width: 70%;
+ height: auto;
 }
 
 .lineImage{
@@ -95,7 +97,7 @@
 }
 
 .lineImage img {
- height: 30%;
+ height: 100%;
  width: auto;
  object-fit: cover;
 }
@@ -104,10 +106,34 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+ margin-left: 15px;
 }
 
 .buttons{
  display: flex;
  flex-direction:row;
  gap: 10px;
+}
+
+.animeName{
+ color:black;
+ display:flex;
+ justify-content: center;
+}
+
+.topAnime{
+ display: flex;
+ flex-direction: column;
+}
+
+.topic{
+ display: flex;
+}
+
+.animecolume{
+ display: flex;
+ flex-direction: row;
+ gap: 40px;
+ align-items: center;
+ width: 100%;
 }
