@@ -7,6 +7,7 @@ import Popover from "./components/UI/popover.jsx";
 import Cardarray from "./components/UI/cardarray.jsx";
 import './App.css'
 import Search from "./components/UI/search.jsx";
+import Animepreviewline from "./components/UI/animepreviewline.jsx";
 const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle=  {
@@ -24,13 +25,14 @@ const headerStyle=  {
     position: 'fixed',
     zIndex: 1000,
     backgroundColor: 'rgba(145, 145, 145, 0.5)',
+    backdropFilter: 'blur(10px)'
 }
 const contentStyle = {
     textAlign: 'center',
     minHeight: 120,
     lineHeight: '120px',
     color: '#fff',
-    backgroundColor: '#2F363A',
+    background: 'linear-gradient(to bottom, #2F363A, white)'
 };
 const footerStyle = {
     textAlign: 'center',
@@ -84,8 +86,12 @@ const App = () => (
                        </div>
                    </div>
                </div>
+                <div>
+                    <h1 className="TopTitle">Top 10 Titles</h1>
+                </div>
 
                 <Cardarray/>
+                <Animepreviewline></Animepreviewline>
             </Content>
             <Footer style={footerStyle}>Footer</Footer>
         </Layout>

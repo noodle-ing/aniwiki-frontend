@@ -35,7 +35,7 @@ const CardArray = () => {
                     overflowX: 'auto',
                     scrollBehavior: 'smooth',
                     padding: '10px 40px',
-                    scrollbarWidth: 'none' // hides scrollbar in Firefox
+                    scrollbarWidth: 'none'
                 }}
             >
                 {cardItems.map((index) => (
