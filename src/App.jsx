@@ -5,7 +5,8 @@ import Carousel from "./components/UI/carousel.jsx";
 import Card from "./components/UI/popover.jsx";
 import Popover from "./components/UI/popover.jsx";
 import Cardarray from "./components/UI/cardarray.jsx";
-
+import './App.css'
+import Search from "./components/UI/search.jsx";
 const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle=  {
@@ -14,7 +15,10 @@ const headerStyle=  {
     height: '64',
     paddingInline: '48',
     lineHeight : '64',
-    backgroundColor: '#2F363A'
+    backgroundColor: '#919191',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'start',
 }
 const contentStyle = {
     textAlign: 'center',
@@ -37,9 +41,37 @@ const layoutStyle = {
 const App = () => (
     <Flex gap="middle" wrap>
         <Layout style={layoutStyle}>
-            <Header style={headerStyle}>Header</Header>
+            <Header style={headerStyle}>
+                <div className="cone">
+                    <img src="/src/images/cone.png" alt="cone"/>
+                </div>
+                <div>
+                    <h3 className="logoTextStyle">AniWiki</h3>
+                </div>
+            </Header>
             <Content style={contentStyle}>
-               <Carousel />
+               <div className="mainPageImages">
+                   <div className="mainPageAnimeGirl">
+                       <img src="/src/images/IMG_2873.PNG" alt="#"/>
+                   </div>
+                   <div className="textimages">
+                       <div className="whiteText">
+                           <div className="firstFrame">
+                               <img src="/src/images/Fraim0.jpg" alt="#"/>
+                           </div>
+                           <div className="secondFrame">
+                               <img src="/src/images/Fraim1.jpg" alt="#"/>
+                           </div>
+                       </div>
+                       <div>
+                       <img src="/src/images/Fraim2.jpg" alt="#"/>
+                       </div>
+                       <div>
+                           <Search></Search>
+                       </div>
+                   </div>
+               </div>
+
                 <Cardarray/>
             </Content>
             <Footer style={footerStyle}>Footer</Footer>
