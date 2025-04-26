@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Layout } from 'antd';
+import {Button, Flex, Layout} from 'antd';
 import 'antd/dist/reset.css'
 import Carousel from "./components/UI/carousel.jsx";
 import Card from "./components/UI/popover.jsx";
@@ -15,10 +15,15 @@ const headerStyle=  {
     height: '64',
     paddingInline: '48',
     lineHeight : '64',
-    backgroundColor: '#919191',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'start',
+    justifyContent: 'space-between',
+    top: 0,
+    left: 0,
+    right: 0,
+    position: 'fixed',
+    zIndex: 1000,
+    backgroundColor: 'rgba(145, 145, 145, 0.5)',
 }
 const contentStyle = {
     textAlign: 'center',
@@ -42,11 +47,19 @@ const App = () => (
     <Flex gap="middle" wrap>
         <Layout style={layoutStyle}>
             <Header style={headerStyle}>
-                <div className="cone">
-                    <img src="/src/images/cone.png" alt="cone"/>
-                </div>
-                <div>
-                    <h3 className="logoTextStyle">AniWiki</h3>
+               <div className="LogoText">
+                   <div className="cone">
+                       <img src="/src/images/cone.png" alt="cone"/>
+                   </div>
+                   <div>
+                       <h3 className="logoTextStyle">AniWiki</h3>
+                   </div>
+               </div>
+
+                <div className="LoginButton">
+                    <Button color="default" variant="filled" className="whiteTextButton">
+                        Login
+                    </Button>
                 </div>
             </Header>
             <Content style={contentStyle}>

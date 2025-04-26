@@ -11,16 +11,6 @@ const CardArray = () => {
 
     const cardItems = Array.from({ length: 10 }, (_, index) => index + 1);
 
-    const scroll = (direction) => {
-        const { current } = scrollContainerRef;
-        if (current) {
-            const scrollAmount = 200;
-            current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
 
     return (
         <div style={{ position: 'relative', width: '100%', padding: '40px 0' }}>
@@ -34,16 +24,6 @@ const CardArray = () => {
                 gap: '40px',
                 zIndex: 2
             }}>
-               <Button color="default" variant="filled"
-                       onClick={() => scroll('left')}
-               >
-                   ◀
-               </Button>
-               <Button color="default" variant="filled"
-                       onClick={() => scroll('right')}
-               >
-                   ▶
-               </Button>
            </div>
 
             <div
@@ -51,7 +31,7 @@ const CardArray = () => {
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
-                    gap: '40px',
+                    gap: '60px',
                     overflowX: 'auto',
                     scrollBehavior: 'smooth',
                     padding: '10px 40px',
