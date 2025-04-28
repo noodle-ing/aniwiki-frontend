@@ -24,7 +24,7 @@ const AnimeSearch = () => {
 
     const fetchAnime = async (query, page) => {
         try {
-            const response = await axios.get(`http://localhost:5042/Anime/search`, {
+            const response = await axios.get(`http://134.209.249.191/api/Anime/search`, {
                 params: {
                     query: query,
                     page: page,

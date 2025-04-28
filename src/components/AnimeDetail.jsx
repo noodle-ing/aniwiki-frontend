@@ -7,7 +7,7 @@ const AnimeDetail = () => {
     const [anime, setAnime] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5042/Anime/anime/${id}`)
+        fetch(`http://134.209.249.191/api/Anime/anime/${id}`)
             .then(response => response.json())
             .then(data => {
                 setAnime(data.data);

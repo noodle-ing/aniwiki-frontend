@@ -48,7 +48,7 @@ const App = () => {
     useEffect(() => {
         const fetchAnimeData = async () => {
             try {
-                const response = await fetch('http://localhost:5042/Anime/top10');
+                const response = await fetch('http://134.209.249.191/api/Anime/top10');
                 if (!response.ok) {
                     throw new Error('Failed to fetch');
                 }
