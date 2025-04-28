@@ -1,13 +1,13 @@
-﻿import React, {useEffect, useState} from "react";
+﻿import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useLocation} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import AnimeCard from "./AnimeCard.jsx";
 
 const AnimeSearch = () => {
     const [searchQuery, setSearchQuery] = useState(""); // строка поиска
     const [animeList, setAnimeList] = useState([]); // список аниме
     const [currentPage, setCurrentPage] = useState(1); // текущая страница
     const [hasNextPage, setHasNextPage] = useState(false); // есть ли следующая страница
-
 
     const location = useLocation();
     useEffect(() => {
@@ -37,7 +37,6 @@ const AnimeSearch = () => {
         }
     };
 
-
     const handleNextPage = () => {
         const nextPage = currentPage + 1;
         setCurrentPage(nextPage);
@@ -54,14 +53,9 @@ const AnimeSearch = () => {
 
     return (
         <div className="p-4">
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {animeList.map((anime) => (
-                    <div key={anime.mal_id} className="border rounded shadow p-4">
-                        <img src={anime.images.jpg.image_url} alt={anime.title} className="w-full h-64 object-cover" />
-                        <h2 className="text-xl font-bold mt-2">{anime.title}</h2>
-                        <p className="text-gray-600">{anime.synopsis?.substring(0, 100)}...</p>
-                    </div>
+                    <AnimeCard key={anime.mal_id} anime={anime} />
                 ))}
             </div>
 
