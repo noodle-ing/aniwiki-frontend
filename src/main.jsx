@@ -5,6 +5,7 @@ import App from './App.jsx';
 import AnimeDetail from './components/AnimeDetail.jsx';
 import './index.css';
 import 'antd/dist/reset.css';
+import SearchAnimePage from "./components/UI/SearchAnimePage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     {
         path: '/anime/:id',
         element: <AnimeDetail />,
+    },
+    {
+        path: '/search',
+        element: <SearchAnimePage />,
     },
 ]);
 
