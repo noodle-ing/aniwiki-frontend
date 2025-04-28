@@ -1,15 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import DefaultLayout from './Layout/DefaultLayout.jsx';
-import { Card } from 'antd';
-import Search from "./UI/search.jsx";
-import Animepreviewcolume from "./UI/animepreviewcolume.jsx";
 
-
-// const cardStyle ={
-//     backgroundColor: 'rgba(0, 0,0, 0.8)',
-//
-// }
 const AnimeDetail = () => {
     const { id } = useParams();
     const [anime, setAnime] = useState(null);
