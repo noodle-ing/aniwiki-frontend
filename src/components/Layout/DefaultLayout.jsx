@@ -44,7 +44,7 @@ const DefaultLayout = ({children }) => (
             <Header style={headerStyle}>
                 <div className="LogoText">
                     <div className="cone">
-                        <img src="/src/images/cone.png" alt="cone"/>
+                        <img src="/images/cone.png" alt="cone"/>
                     </div>
                     <div>
                         <h3 className="logoTextStyle">AniWiki</h3>
