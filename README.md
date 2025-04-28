@@ -52,6 +52,6 @@ npm install
 ```bash
 npm run dev
 ```
-##📡 Backend Connection
+## 📡 Backend Connection
 
 The frontend communicates with a Web API backend by sending HTTP requests and receiving JSON responses.Fetched data includes anime information such as title, synopsis, image, rating, and genres.
