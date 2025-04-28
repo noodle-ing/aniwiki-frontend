@@ -1,13 +1,14 @@
 ﻿import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AnimeCard from "./AnimeCard.jsx";
+import DefaultLayout from "../Layout/DefaultLayout.jsx";
 
 const AnimeSearch = () => {
-    const [searchQuery, setSearchQuery] = useState(""); // строка поиска
-    const [animeList, setAnimeList] = useState([]); // список аниме
-    const [currentPage, setCurrentPage] = useState(1); // текущая страница
-    const [hasNextPage, setHasNextPage] = useState(false); // есть ли следующая страница
+    const [searchQuery, setSearchQuery] = useState("");
+    const [animeList, setAnimeList] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [hasNextPage, setHasNextPage] = useState(false);
 
     const location = useLocation();
     useEffect(() => {
@@ -16,10 +17,10 @@ const AnimeSearch = () => {
         const query = queryParams.get("query");
         console.log(query);
         if (query) {
-            setSearchQuery(query); // Устанавливаем значение query в состояние
-            fetchAnime(query, 1); // Делаем запрос с этим query
+            setSearchQuery(query);
+            fetchAnime(query, 1);
         }
-    }, [location.search]); // Срабатывает, когда меняется URL
+    }, [location.search]);
 
     const fetchAnime = async (query, page) => {
         try {
@@ -30,8 +31,8 @@ const AnimeSearch = () => {
                 },
             });
 
-            setAnimeList(response.data.data); // список аниме
-            setHasNextPage(response.data.pagination.has_next_page); // есть ли следующая страница
+            setAnimeList(response.data.data);
+            setHasNextPage(response.data.pagination.has_next_page);
         } catch (error) {
             console.error("Error fetching anime:", error);
         }
@@ -52,33 +53,37 @@ const AnimeSearch = () => {
     };
 
     return (
-        <div className="p-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {animeList.map((anime) => (
-                    <AnimeCard key={anime.mal_id} anime={anime} />
-                ))}
+        <DefaultLayout>
+            <div className="p-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {animeList.map((anime) => (
+                        <AnimeCard key={anime.mal_id} anime={anime} />
+                    ))}
+                </div>
+
+                <div className="flex justify-center mt-6 space-x-2">
+                    <button
+                        onClick={handlePrevPage}
+                        disabled={currentPage === 1}
+                        className="px-3 py-0.05 text-sm bg-gray-200 rounded-md disabled:opacity-50 hover:bg-gray-300 transition-all duration-200"
+                    >
+                        Previous
+                    </button>
+
+                    <span className="px-2 py-1 text-sm text-gray-600">{`Page ${currentPage}`}</span>
+
+                    <button
+                        onClick={handleNextPage}
+                        disabled={!hasNextPage}
+                        className="px-3 py-0.05 text-sm bg-gray-200 rounded-md disabled:opacity-50 hover:bg-gray-300 transition-all duration-200"
+                    >
+                        Next
+                    </button>
+                </div>
+
             </div>
+        </DefaultLayout>
 
-            <div className="flex justify-center mt-4 space-x-4">
-                <button
-                    onClick={handlePrevPage}
-                    disabled={currentPage === 1}
-                    className="p-2 bg-gray-300 rounded disabled:opacity-50"
-                >
-                    Previous
-                </button>
-
-                <span className="p-2">Page {currentPage}</span>
-
-                <button
-                    onClick={handleNextPage}
-                    disabled={!hasNextPage}
-                    className="p-2 bg-gray-300 rounded disabled:opacity-50"
-                >
-                    Next
-                </button>
-            </div>
-        </div>
     );
 };
 

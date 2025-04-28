@@ -1,31 +1,21 @@
-﻿import React, { useRef, useState } from 'react';
-import Popover from "./popover.jsx";
-import {Button} from "antd";
+﻿import React, { useState, useRef } from 'react';
+import Popover from './popover.jsx';
+import { Button } from 'antd';
 
-const CardArray = () => {
+const Cardarray = ({ animeData }) => {
     const [visible, setVisible] = useState(false);
     const scrollContainerRef = useRef(null);
+    console.log("это то что прилетает в cardarray:", animeData);
+
+    if (!animeData || !Array.isArray(animeData)) {
+        return <div>Loading or No data available</div>;  // Можете вывести какое-то сообщение или элемент-заполнитель
+    }
 
     const handleMouseEnter = () => setVisible(true);
     const handleMouseLeave = () => setVisible(false);
 
-    const cardItems = Array.from({ length: 10 }, (_, index) => index + 1);
-
-
     return (
         <div style={{ position: 'relative', width: '100%', padding: '40px 0' }}>
-            <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '10px',
-                transform: 'translateY(-50%)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '40px',
-                zIndex: 2
-            }}>
-           </div>
-
             <div
                 ref={scrollContainerRef}
                 style={{
@@ -35,13 +25,13 @@ const CardArray = () => {
                     overflowX: 'auto',
                     scrollBehavior: 'smooth',
                     padding: '10px 40px',
-                    scrollbarWidth: 'none'
+                    scrollbarWidth: 'none',
                 }}
             >
-                {cardItems.map((index) => (
+                {animeData.map((anime, index) => (
                     <Popover
-                        key={index}
-                        index={index}
+                        key={anime.id}  // Используем уникальный идентификатор для ключа
+                        anime={anime}  // Передаем объект
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                         visible={visible}
@@ -52,4 +42,4 @@ const CardArray = () => {
     );
 };
 
-export default CardArray;
+export default Cardarray;

@@ -31,11 +31,7 @@ const contentStyle = {
     paddingRight: '80px',
     paddingLeft: '80px',
 };
-const footerStyle = {
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#CDCCD4',
-};
+
 const layoutStyle = {
     borderRadius: 8,
     overflow: 'hidden',
@@ -64,7 +60,6 @@ const DefaultLayout = ({children }) => (
             <Content style={contentStyle}>
                 {children}
             </Content>
-            <Footer style={footerStyle}>Footer</Footer>
         </Layout>
     </Flex>
 );
