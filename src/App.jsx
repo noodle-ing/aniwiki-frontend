@@ -74,7 +74,7 @@ const App = () => {
             <Header style={headerStyle}>
                 <div className="LogoText">
                     <div className="cone">
-                        <img src="/src/images/cone.png" alt="cone" />
+                        <img src="/images/cone.png" alt="cone" />
                     </div>
                     <div>
                         <h3 className="logoTextStyle">AniWiki</h3>
@@ -90,19 +90,19 @@ const App = () => {
             <Content style={contentStyle}>
                 <div className="mainPageImages">
                     <div className="mainPageAnimeGirl">
-                        <img src="/src/images/IMG_2873.PNG" alt="#" />
+                        <img src="/images/IMG_2873.PNG" alt="#" />
                     </div>
                     <div className="textimages">
                         <div className="whiteText">
                             <div className="firstFrame">
-                                <img src="/src/images/Fraim0.jpg" alt="#" />
+                                <img src="/images/Fraim0.jpg" alt="#" />
                             </div>
                             <div className="secondFrame">
-                                <img src="/src/images/Fraim1.jpg" alt="#" />
+                                <img src="/images/Fraim1.jpg" alt="#" />
                             </div>
                         </div>
                         <div>
-                            <img src="/src/images/Fraim2.jpg" alt="#" />
+                            <img src="/images/Fraim2.jpg" alt="#" />
                         </div>
                         <div>
                             <Search />
